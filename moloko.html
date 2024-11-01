@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>мой огород</title>
+    <link rel="stylesheet" href="style_2.css">
+    <link rel="shortcut icon" href="img/ic.ico" type="image/x-icon">
+</head>
+<body>
+    <header >
+        <div>
+        </div>
+        <div class="button-container">
+            <button class="outline-button" onclick="window.location.href='index.html'">Главная</button>
+            <button class="outline-button" onclick="window.location.href='chart.html'">Карта города</button>
+            <button class="outline-button" onclick="window.location.href='moloko.html'">Мессенджер</button>
+            <button class="outline-button" onclick="window.location.href='yopta.html'">Телефоны для вызова экстренных служб</button>
+        </div>
+        <div>
+        <style>   
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .posts-container {
+            width: 60%;
+            margin-top: 20px;
+        }
+
+        .post {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .post img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .post-content {
+            flex: 1;
+        }
+
+        .new-post-container {
+            margin-top: 20px;
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .new-post-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        .new-post-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .new-post-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Мессенджер</h2>
+
+<div class="posts-container" id="postsContainer">
+    <!-- Сообщения будут добавлены здесь динамически -->
+</div>
+
+<div class="new-post-container">
+    <textarea id="postText" rows="4" placeholder="Введите ваш пост..."></textarea>
+    <button id="submitPost">Оставить пост</button>
+</div>
+
+<script>
+    // Инициализируем массив с постами
+    let posts = [
+        { img: 'https://via.placeholder.com/80', text: 'Это первый пост' },
+        { img: 'https://via.placeholder.com/80', text: 'Это второй пост' },
+        { img: 'https://via.placeholder.com/80', text: 'Это третий пост' }
+    ];
+
+    // Функция для отображения постов на странице
+    function displayPosts() {
+        const postsContainer = document.getElementById('postsContainer');
+        postsContainer.innerHTML = ''; // Очищаем контейнер
+
+        posts.forEach(post => {
+            const postElement = document.createElement('div');
+            postElement.className = 'post';
+            postElement.innerHTML = `
+                <img src="${post.img}" alt="User">
+                <div class="post-content">${post.text}</div>
+            `;
+            postsContainer.appendChild(postElement);
+        });
+    }
+
+    // Изначально отображаем посты
+    displayPosts();
+
+    // Функция добавления нового поста
+    function addPost() {
+        const postText = document.getElementById('postText').value.trim();
+        console.log("Введенный текст:", postText); // Выводим введенный текст в консоль
+
+        if (postText === '') {
+            alert('Введите текст поста');
+            return;
+        }
+
+        // Новый пост добавляется в начало массива
+        const newPost = { img: 'https://via.placeholder.com/80', text: postText };
+        posts.unshift(newPost);
+        console.log("Текущие посты после добавления:", posts); // Выводим текущие посты в консоль
+
+        // Ограничиваем количество постов до 3
+        if (posts.length > 3) {
+            posts.pop(); // Удаляем последний пост, если превышено количество
+        }
+
+        // Обновляем отображение постов и очищаем текстовое поле
+        displayPosts();
+        document.getElementById('postText').value = '';
+    }
+
+    // Добавляем обработчик события для кнопки
+    document.getElementById('submitPost').addEventListener('click', addPost);
+</script>
+
+</body>
+</html>

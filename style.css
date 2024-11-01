@@ -1,0 +1,64 @@
+
+body {
+    font-family: 'Faberge', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.button-container {
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+/* Кнопки без заливки с серой обводкой */
+.outline-button {
+    color: #333;
+    padding: 10px 20px;
+    border: 2px solid #ccc;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Эффект при наведении */
+.outline-button:hover {
+    border-color: #666;
+    color: #666;
+}
+.header-background {
+    background-image: url('img/background.jpg');
+    background-size: cover;
+    background-position: center;
+
+    min-height: 748px;
+}
+
+nav {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.enter-button, .register-button {
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.enter-button {
+    background-color: #3e8ffa;
+}
+
+.register-button {
+    background-color: #ff6b00;
+}
+

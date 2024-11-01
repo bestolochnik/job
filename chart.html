@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>мой огород</title>
+    <link rel="stylesheet" href="style_1.css">
+    <link rel="shortcut icon" href="img/ic.ico" type="image/x-icon">
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header class="header-background">
+        <div class="logo">
+        </div>
+        <div class="button-container">
+            <button class="outline-button" onclick="window.location.href='index.html'">Главная</button>
+            <button class="outline-button" onclick="window.location.href='chart.html'">Карта города</button>
+            <button class="outline-button" onclick="window.location.href='moloko.html'">Мессенджер</button>
+            <button class="outline-button" onclick="window.location.href='yopta.html'">Телефоны для вызова экстренных служб</button>
+        </div>
+        <div class="chart">
+            <iframe 
+                style="border: 0;" 
+                src="https://www.google.com/maps/embed/v1/view?key=AIzaSyCNJAGk2o04WPfrBEiX35wmLQ-A8Xd4HSw&center=54.8800,69.1400&zoom=12" 
+                width="100%" 
+                height="500" 
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <nav>
+            <button class="register-button" onclick="register()">Регистрация</button>
+            <button class="enter-button" onclick="register()">Вход</button>
+        </nav>
+    </header>
+
